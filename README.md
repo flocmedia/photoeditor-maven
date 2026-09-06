@@ -40,3 +40,14 @@ removal would otherwise break clean-room builds with no recovery. Insurance,
 same pattern as the `com/flocmedia/photoeditor` mirror. Regenerable from
 `dl.google.com` / the Gradle cache. The app resolves it through the existing
 `raw.githubusercontent.com/flocmedia/photoeditor-maven` repository entry.
+
+`play-services-mlkit-face-detection:17.1.0` was added under GAME-742 (the
+face-detection revival spike). It is the only face-detection-specific artifact
+that needed mirroring: its ML Kit transitive deps (`common`, `vision-common`,
+`vision-interfaces`, `com.google.android.odml:image`) resolve UP to the exact
+versions already mirrored for segmentation, and its remaining transitives
+(`play-services-base`/`-basement`/`-tasks`, `datatransport`, `firebase-encoders`)
+are actively-served Google infra, out of scope for this mirror by the same
+boundary as the segmentation entries above. It stays here even if GAME-742's app
+change is not merged — 17.1.0 is the newest published face-detection release, so
+the insurance is valid regardless.
