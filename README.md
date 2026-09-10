@@ -51,3 +51,21 @@ are actively-served Google infra, out of scope for this mirror by the same
 boundary as the segmentation entries above. It stays here even if GAME-742's app
 change is not merged — 17.1.0 is the newest published face-detection release, so
 the insurance is valid regardless.
+
+## com/github — JitPack resilience mirror (GAME-832)
+
+`com/github/**` is NOT this library's code. It is a static mirror of the three
+JitPack AARs the Thug Life app depends on, moved here so the build no longer
+resolves from `jitpack.io`:
+
+- `com.github.javiersantos:MaterialStyledDialogs:2.1`
+- `com.github.yalantis:ucrop:2.2.6`
+- `com.github.MasayukiSuda:BubbleLayout:v1.2.2` (includes the Gradle `.module`)
+
+Why: JitPack rebuilds old tags on demand and a failed rebuild can end in a 404
+(PhotoView is the precedent — a 9-year-old tag now 404s both `.pom` and `.aar`).
+`MaterialStyledDialogs:2.1` was already in that failed-rebuild state. Each artifact
+is byte-copied from the Gradle cache with its `.pom` and md5/sha1/sha256/sha512
+checksums; transitive deps (appcompat/exifinterface/transition/okhttp, etc.) keep
+resolving from `google()`/`mavenCentral()` and are not mirrored here. Insurance,
+same pattern as the `com/flocmedia/photoeditor` and `com/google` mirrors above.
