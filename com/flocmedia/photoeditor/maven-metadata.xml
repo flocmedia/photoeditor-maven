@@ -3,8 +3,8 @@
   <groupId>com.flocmedia</groupId>
   <artifactId>photoeditor</artifactId>
   <versioning>
-    <latest>0.0.0-e2b4df6f8d</latest>
-    <release>0.0.0-e2b4df6f8d</release>
+    <latest>0.0.0-cbea3738cb</latest>
+    <release>0.0.0-cbea3738cb</release>
     <versions>
       <version>0.0.0-796c986ab4</version>
       <version>0.0.0-76745432a4</version>
@@ -42,7 +42,8 @@
       <version>0.0.0-8febf096f7</version>
       <version>0.0.0-ed6a638a40</version>
       <version>0.0.0-e2b4df6f8d</version>
+      <version>0.0.0-cbea3738cb</version>
     </versions>
-    <lastUpdated>20260914214612</lastUpdated>
+    <lastUpdated>20260916233610</lastUpdated>
   </versioning>
 </metadata>
